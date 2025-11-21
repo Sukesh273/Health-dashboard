@@ -1,0 +1,5 @@
+{
+  "name": "BioSync Monitor",
+  "description": "A futuristic real-time health sensor dashboard monitoring temperature, heart rate, and sound intensity with dynamic visualizations.",
+  "requestFramePermissions": []
+}
