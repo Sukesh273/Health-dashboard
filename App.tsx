@@ -103,6 +103,10 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            <div className="flex flex-col items-end border-r border-gray-700 pr-4 mr-2 hidden sm:flex">
+              <span className="text-gray-300 font-mono text-sm font-bold tracking-wider uppercase">Sukesh</span>
+              <span className="text-cyan-500/70 font-mono text-xs">2401730273</span>
+            </div>
             <button 
               onClick={() => setIsSimulating(!isSimulating)}
               className={`px-4 py-2 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all ${isSimulating ? 'bg-green-500/20 text-green-400 border border-green-500/50 hover:bg-green-500/30' : 'bg-gray-800 text-gray-400 border border-gray-700 hover:bg-gray-700'}`}

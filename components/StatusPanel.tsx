@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Activity, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 interface StatusPanelProps {
@@ -6,6 +6,25 @@ interface StatusPanelProps {
 }
 
 export const StatusPanel: React.FC<StatusPanelProps> = ({ overallHealthy }) => {
+  const [uptimeSeconds, setUptimeSeconds] = useState(0);
+
+  useEffect(() => {
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      setUptimeSeconds(Math.floor((Date.now() - startTime) / 1000));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatUptime = (totalSeconds: number) => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
   return (
     <div className={`w-full glass-panel rounded-2xl p-8 mt-6 border-l-8 transition-all duration-500 ${overallHealthy ? 'border-l-neon-green' : 'border-l-neon-red'}`}>
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -31,7 +50,7 @@ export const StatusPanel: React.FC<StatusPanelProps> = ({ overallHealthy }) => {
            <Activity className="text-gray-600" />
            <div className="flex flex-col text-right">
              <span className="text-xs text-gray-500 uppercase">System Uptime</span>
-             <span className="font-mono text-lg text-gray-300">04:22:19</span>
+             <span className="font-mono text-lg text-gray-300">{formatUptime(uptimeSeconds)}</span>
            </div>
         </div>
 
