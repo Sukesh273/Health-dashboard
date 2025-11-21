@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Thermometer, Activity, Volume2, Zap } from 'lucide-react';
-import { INITIAL_SENSORS, SIMULATION_RANGES } from './constants';
-import { SensorData, SensorType } from './types';
-import { SensorCard } from './components/SensorCard';
-import { StatusPanel } from './components/StatusPanel';
+import { INITIAL_SENSORS, SIMULATION_RANGES } from './constants.ts';
+import { SensorData, SensorType } from './types.ts';
+import { SensorCard } from './components/SensorCard.tsx';
+import { StatusPanel } from './components/StatusPanel.tsx';
 
 const App: React.FC = () => {
   const [sensors, setSensors] = useState<Record<SensorType, SensorData>>(INITIAL_SENSORS);

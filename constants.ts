@@ -1,4 +1,4 @@
-import { SensorType, SensorData } from './types';
+import { SensorType, SensorData } from './types.ts';
 
 // Helper to generate initial history
 const initHistory = (val: number, count: number = 30) => Array(count).fill(val);

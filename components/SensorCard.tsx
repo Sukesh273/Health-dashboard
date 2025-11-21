@@ -1,8 +1,8 @@
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
-import { SensorData, SensorStatus } from '../types';
-import { CircularGauge } from './CircularGauge';
-import { TrendGraph } from './TrendGraph';
+import { SensorData, SensorStatus } from '../types.ts';
+import { CircularGauge } from './CircularGauge.tsx';
+import { TrendGraph } from './TrendGraph.tsx';
 
 interface SensorCardProps {
   data: SensorData;
